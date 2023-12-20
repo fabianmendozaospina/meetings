@@ -2,27 +2,28 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
-import * as $0 from "./routes/_404.tsx";
-import * as $1 from "./routes/_app.tsx";
-import * as $2 from "./routes/api/flash.ts";
-import * as $3 from "./routes/api/users/create.ts";
-import * as $4 from "./routes/index.tsx";
-import * as $5 from "./routes/users/create.tsx";
-import * as $$0 from "./islands/Messages.tsx";
+import * as $_404 from "./routes/_404.tsx";
+import * as $_app from "./routes/_app.tsx";
+import * as $api_users_sign_up from "./routes/api/users/sign-up.ts";
+import * as $index from "./routes/index.tsx";
+import * as $users_sign_in from "./routes/users/sign-in.tsx";
+import * as $users_sign_up from "./routes/users/sign-up.tsx";
+import * as $Messages from "./islands/Messages.tsx";
+import { type Manifest } from "$fresh/server.ts";
 
 const manifest = {
   routes: {
-    "./routes/_404.tsx": $0,
-    "./routes/_app.tsx": $1,
-    "./routes/api/flash.ts": $2,
-    "./routes/api/users/create.ts": $3,
-    "./routes/index.tsx": $4,
-    "./routes/users/create.tsx": $5,
+    "./routes/_404.tsx": $_404,
+    "./routes/_app.tsx": $_app,
+    "./routes/api/users/sign-up.ts": $api_users_sign_up,
+    "./routes/index.tsx": $index,
+    "./routes/users/sign-in.tsx": $users_sign_in,
+    "./routes/users/sign-up.tsx": $users_sign_up,
   },
   islands: {
-    "./islands/Messages.tsx": $$0,
+    "./islands/Messages.tsx": $Messages,
   },
   baseUrl: import.meta.url,
-};
+} satisfies Manifest;
 
 export default manifest;
