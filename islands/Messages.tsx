@@ -2,8 +2,6 @@ export default function Messages(
   props: { successMessages: string[]; errorMessages: string[] },
 ) {
   const { successMessages, errorMessages } = props;
-  console.log(">>> messages", successMessages);
-  console.log(">>> length:", successMessages?.length);
   return (
     <>
       {successMessages &&

@@ -1,6 +1,7 @@
 import { Handlers } from "$fresh/server.ts";
 import type { WithSession } from "fresh-session";
 import { User } from "../../../models/User.ts";
+import { sendEmail } from "../../../emails/handlers.ts";
 
 export const handler: Handlers<
   unknown,
@@ -24,14 +25,25 @@ export const handler: Handlers<
         messages.push("Password is different");
       }
 
-      const body = {
+      const user = {
         email: formData.get("email"),
         name: formData.get("name"),
         password,
         confirm,
       };
 
-      await User.create(body);
+      await User.create(user);
+
+      // Generate confirmation url.
+      const url = `http://${ctx.url.host}/confirm-account/${user.email}`;
+
+      // Send the confirmation email.
+      await sendEmail({
+        user,
+        url,
+        subject: "Confirm your Meetings account",
+        file: "confirm-account",
+      });
 
       //Flash message y redireccionar.
       session.flash(
@@ -40,7 +52,8 @@ export const handler: Handlers<
       );
       headers.set("location", "/users/sign-in");
     } catch (error) {
-      error.errors.map((err: any) => messages.push(err.message));
+      console.log(">>> error", error);
+      error.errors?.map((err: any) => messages.push(err.message));
       session.flash("error", messages);
       headers.set("location", "/users/sign-up");
     }

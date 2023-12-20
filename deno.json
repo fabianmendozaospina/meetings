@@ -21,7 +21,9 @@
     "$std/": "https://deno.land/std@0.193.0/",
     "bcrypt": "https://deno.land/x/bcrypt@v0.3.0/mod.ts",
     "config": "https://deno.land/x/dotenv@v3.2.2/mod.ts",
-    "fresh-session": "https://deno.land/x/fresh_session@beta-0.3.0/mod.ts"
+    "fresh-session": "https://deno.land/x/fresh_session@beta-0.3.0/mod.ts",
+    "denomailer": "https://deno.land/x/denomailer@1.6.0/mod.ts",
+    "dejs": "https://deno.land/x/dejs@0.10.3/mod.ts"
   },
   "compilerOptions": { "jsx": "react-jsx", "jsxImportSource": "preact" }
 }
