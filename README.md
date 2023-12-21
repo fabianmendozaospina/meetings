@@ -1,2 +1,2 @@
 # meetings
-Creating a meeting platform with Deno Fresh
+Meeting platform with Deno Fresh.
