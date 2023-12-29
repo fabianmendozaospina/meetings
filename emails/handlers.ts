@@ -21,8 +21,8 @@ const clientOptions: ClientOptions = {
     preprocessors: [],
   },
   debug: {
-    log: false,
-    allowUnsecure: false,
+    log: true,
+    allowUnsecure: true,
     encodeLB: false,
     noStartTLS: false,
   },
@@ -56,10 +56,11 @@ export const sendEmail = async (options: any) => {
   console.log("** emailOptions", emailOptions);
 
   // Send the email.
+  console.log("** clientOptions", clientOptions);
   const emailClient = new SMTPClient(clientOptions);
   await emailClient.send(emailOptions);
   console.log("** enviado");
 
   // Close the file reader.
-  //fileReader.close();
+  fileReader.close();
 };

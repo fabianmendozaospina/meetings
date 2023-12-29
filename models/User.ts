@@ -1,12 +1,12 @@
 import {
-  // BeforeCreate,
+  //BeforeCreate,
   Column,
   DataType,
   Model,
   Table,
 } from "npm:sequelize-typescript";
 
-// import * as bcrypt from "bcrypt";
+import * as bcrypt from "bcrypt";
 
 @Table({
   tableName: "user",
@@ -73,7 +73,7 @@ export class User extends Model {
   tokenExpiration!: Date;
 
   // @BeforeCreate
-  // static async beforeCreate(instance: User, name: string) {
+  // static async beforeCreate(instance: User) {
   //   // Encript the password.
   //   if (instance.password) {
   //     instance.password = await User.hashPassword(instance.password);
@@ -85,7 +85,7 @@ export class User extends Model {
   //   return await bcrypt.hash(password, salt);
   // }
 
-  // async validatePassword(password: string) {
-  //   return await bcrypt.compare(password, this.password);
-  // }
+  async validatePassword(password: string) {
+    return await bcrypt.compare(password, this.password);
+  }
 }

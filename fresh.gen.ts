@@ -4,6 +4,8 @@
 
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
+import * as $api_users_confirm_account_email_ from "./routes/api/users/confirm-account/[email].ts";
+import * as $api_users_sign_in from "./routes/api/users/sign-in.ts";
 import * as $api_users_sign_up from "./routes/api/users/sign-up.ts";
 import * as $index from "./routes/index.tsx";
 import * as $users_sign_in from "./routes/users/sign-in.tsx";
@@ -15,6 +17,9 @@ const manifest = {
   routes: {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
+    "./routes/api/users/confirm-account/[email].ts":
+      $api_users_confirm_account_email_,
+    "./routes/api/users/sign-in.ts": $api_users_sign_in,
     "./routes/api/users/sign-up.ts": $api_users_sign_up,
     "./routes/index.tsx": $index,
     "./routes/users/sign-in.tsx": $users_sign_in,

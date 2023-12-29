@@ -35,8 +35,9 @@ export const handler: Handlers<
       await User.create(user);
 
       // Generate confirmation url.
-      const url = `http://${ctx.url.host}/confirm-account/${user.email}`;
-
+      const url =
+        `http://${ctx.url.host}/api/users/confirm-account/${user.email}`;
+      console.log("** url", url);
       // Send the confirmation email.
       await sendEmail({
         user,

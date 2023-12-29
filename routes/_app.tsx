@@ -38,6 +38,9 @@ export default function App({ Component, data }: PageProps) {
             <a href="/users/sign-in">Sign In</a>
             <a href="/users/sign-up">Sign Up</a>
           </nav>
+          <p>
+            {globalData.user}
+          </p>
         </header>
 
         <Messages

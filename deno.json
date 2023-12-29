@@ -23,7 +23,9 @@
     "config": "https://deno.land/x/dotenv@v3.2.2/mod.ts",
     "fresh-session": "https://deno.land/x/fresh_session@beta-0.3.0/mod.ts",
     "denomailer": "https://deno.land/x/denomailer@1.6.0/mod.ts",
-    "dejs": "https://deno.land/x/dejs@0.10.3/mod.ts"
+    "dejs": "https://deno.land/x/dejs@0.10.3/mod.ts",
+    "onyx": "https://deno.land/x/onyx@v1.0.1/mod.ts",
+    "onyx-local": "https://deno.land/x/onyx@v1.0.1/src/strategies/local-strategy/local-strategy.ts"
   },
   "compilerOptions": { "jsx": "react-jsx", "jsxImportSource": "preact" }
 }
