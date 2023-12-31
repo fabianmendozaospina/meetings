@@ -20,6 +20,11 @@ export default function App({ Component, data }: PageProps) {
           href="https://fonts.googleapis.com/css?family=Raleway:400,700,900|Staatliches"
           rel="stylesheet"
         />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://unpkg.com/trix@2.0.0/dist/trix.css"
+        />
       </head>
 
       <body>
@@ -60,6 +65,11 @@ export default function App({ Component, data }: PageProps) {
             All right reserved Meetings {globalData.year} &copy;
           </p>
         </footer>
+        <script
+          type="text/javascript"
+          src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"
+        >
+        </script>
       </body>
     </html>
   );

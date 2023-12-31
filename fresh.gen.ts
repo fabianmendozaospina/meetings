@@ -9,6 +9,7 @@ import * as $api_admin from "./routes/api/admin.ts";
 import * as $api_users_confirm_account_email_ from "./routes/api/users/confirm-account/[email].ts";
 import * as $api_users_sign_in from "./routes/api/users/sign-in.ts";
 import * as $api_users_sign_up from "./routes/api/users/sign-up.ts";
+import * as $groups_new_group from "./routes/groups/new-group.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $users_sign_in from "./routes/users/sign-in.tsx";
 import * as $users_sign_up from "./routes/users/sign-up.tsx";
@@ -25,6 +26,7 @@ const manifest = {
       $api_users_confirm_account_email_,
     "./routes/api/users/sign-in.ts": $api_users_sign_in,
     "./routes/api/users/sign-up.ts": $api_users_sign_up,
+    "./routes/groups/new-group.tsx": $groups_new_group,
     "./routes/index.tsx": $index,
     "./routes/users/sign-in.tsx": $users_sign_in,
     "./routes/users/sign-up.tsx": $users_sign_up,
