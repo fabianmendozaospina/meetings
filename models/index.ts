@@ -3,6 +3,7 @@ import { Sequelize } from "npm:sequelize-typescript";
 import "npm:pg";
 import "npm:pg-hstore";
 import { User } from "./User.ts";
+import { Category } from "./Category.ts";
 
 const {
   DATABASE_HOST,
@@ -29,14 +30,14 @@ export class Database {
   }
 
   public async addModels() {
-    await this.sequelize.addModels([User]);
+    await this.sequelize.addModels([User, Category]);
   }
 
   public async connect() {
     try {
       await this.sequelize.authenticate();
       await this.sequelize.sync({
-        force: true,
+        force: false,
       });
 
       console.log("Connection has been established successfuly");

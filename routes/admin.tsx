@@ -20,7 +20,7 @@ export default function CreateAccount(props: PageProps) {
       <h1>Administration Panel</h1>
 
       <div class="contenedor-botones">
-        <a href="/new-group" class="btn btn-amarillo">
+        <a href="/groups/new-group" class="btn btn-amarillo">
           New Group
         </a>
         <a href="/new-meeting" class="btn btn-azul">

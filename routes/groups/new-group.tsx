@@ -9,12 +9,21 @@ export const handler: Handlers<
     const { session } = ctx.state;
     const successMessages: string[] = session.flashNow("success");
     const errorMessages: string[] = session.flashNow("error");
+    const resp = await fetch(`${Deno.env.get("APP_URL")}/api/categories`);
+    let categories = [];
 
-    return await ctx.render({ successMessages, errorMessages });
+    if (resp.status == 200) {
+      categories = await resp.json();
+    }
+
+    return await ctx.render({ successMessages, errorMessages, categories });
   },
 };
 
 export default function NewGroup(props: PageProps) {
+  const { categories } = props.data;
+  console.log(">> categories", categories.length);
+
   return (
     <main class="contenedor contenedor-formularios no-padding">
       <h1>Create a New Group</h1>
@@ -33,7 +42,14 @@ export default function NewGroup(props: PageProps) {
         <div className="campo">
           <label>Category</label>
           <select name="category">
-            <option value="" selected disabled>-- Choose a category --</option>
+            <option value="" selected disabled>
+              -- Choose a category --
+            </option>
+            {categories.forEach((category: any) => {
+              <option value={category.id}>
+                {category.name}
+              </option>;
+            })}
           </select>
         </div>
         <div className="campo">
