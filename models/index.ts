@@ -4,6 +4,7 @@ import "npm:pg";
 import "npm:pg-hstore";
 import { User } from "./User.ts";
 import { Category } from "./Category.ts";
+import { Group } from "./Group.ts";
 
 const {
   DATABASE_HOST,
@@ -30,7 +31,7 @@ export class Database {
   }
 
   public async addModels() {
-    await this.sequelize.addModels([User, Category]);
+    await this.sequelize.addModels([User, Category, Group]);
   }
 
   public async connect() {
