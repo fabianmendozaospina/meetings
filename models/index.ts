@@ -32,6 +32,8 @@ export class Database {
 
   public async addModels() {
     await this.sequelize.addModels([User, Category, Group]);
+    Group.belongsTo(Category);
+    Group.belongsTo(User);
   }
 
   public async connect() {

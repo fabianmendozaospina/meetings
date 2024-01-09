@@ -52,6 +52,3 @@ export class Group extends Model {
     }
   }
 }
-
-Group.belongsTo(Category);
-User.belongsTo(User);
