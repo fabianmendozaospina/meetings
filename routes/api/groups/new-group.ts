@@ -9,7 +9,14 @@ export const handler: Handlers<
   async POST(req, ctx) {
     const headers = new Headers();
     const { session } = ctx.state;
+
+    //TODO: How to sanitize?
+    //req.sanitizeBody("name");
+    //req.sanitizeBody("url");
+
     const group = await req.json();
+    //TODO: Store the authenticated user as the group creator (see video: Sanitizando Grupos).
+    //group.User.id = req.user.id;
 
     try {
       await Group.create(group);
@@ -17,8 +24,10 @@ export const handler: Handlers<
       session.flash("success", "The group has been created sucessfully");
       headers.set("location", "/admin");
     } catch (error) {
+      const messages: string[] = [];
+      error.errors?.map((err: any) => messages.push(err.message));
       console.log(">> new-group error", error);
-      session.flash("error", [error]);
+      session.flash("error", messages);
       headers.set("location", "/groups/new-group");
     }
 

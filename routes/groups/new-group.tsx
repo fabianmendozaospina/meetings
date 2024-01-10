@@ -41,7 +41,7 @@ export default function NewGroup(props: PageProps) {
         </div>
         <div className="campo">
           <label>Category</label>
-          <select name="category">
+          <select name="categoryId">
             <option value="" selected disabled>
               -- Choose a category --
             </option>
