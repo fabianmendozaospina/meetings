@@ -27,7 +27,12 @@ export default function NewGroup(props: PageProps) {
   return (
     <main class="contenedor contenedor-formularios no-padding">
       <h1>Create a New Group</h1>
-      <form class="default-form" action="/api/groups/new-group" method="POST">
+      <form
+        class="default-form"
+        action="/api/groups/new-group"
+        method="POST"
+        enctype="multipart/form-data"
+      >
         <div class="campo">
           <label>Nombre</label>
           <input type="text" name="name" placeholder="Group name"></input>

@@ -18,6 +18,9 @@ export const handler: Handlers<
     //TODO: Store the authenticated user as the group creator (see video: Sanitizando Grupos).
     //group.User.id = req.user.id;
 
+    //read the image.
+    //group.image = req.file.fileName;
+
     try {
       await Group.create(group);
 
