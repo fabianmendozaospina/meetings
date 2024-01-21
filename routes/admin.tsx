@@ -9,12 +9,19 @@ export const handler: Handlers<
     const { session } = ctx.state;
     const successMessages: string[] = session.flashNow("success");
     const errorMessages: string[] = session.flashNow("error");
+    const resp = await fetch(`${Deno.env.get("APP_URL")}/api/categories`);
+    let groups = [];
 
-    return await ctx.render({ successMessages, errorMessages });
+    if (resp.status == 200) {
+      groups = await resp.json();
+    }
+
+    return await ctx.render({ successMessages, errorMessages, groups });
   },
 };
 
 export default function CreateAccount(props: PageProps) {
+  const { groups } = props.data;
   return (
     <main class="contenedor panel-administracion">
       <h1>Administration Panel</h1>
@@ -45,28 +52,41 @@ export default function CreateAccount(props: PageProps) {
               <small>23 Assistants</small>
             </div>
             <div class="acciones contenedor-botones">
-              <a href="#" class="btn btn-verde">Editar</a>
+              <a href="#" class="btn btn-verde">Edit</a>
               <a href="#" class="btn btn-azul2">Assistants</a>
-              <a href="#" class="btn btn-rojo">Eliminar</a>
+              <a href="#" class="btn btn-rojo">Delete</a>
             </div>
-          </li>
+          </li>;
         </ul>
       </div>
 
       <div class="seccion-admin">
         <h2>Your Groups</h2>
-        <ul>
-          <li>
-            <div class="informacion-admin">
-              <h3>BlockChain Toronto</h3>
-            </div>
-            <div class="acciones contenedor-botones">
-              <a href="#" class="btn btn-verde">Editar</a>
-              <a href="#" class="btn btn-azul2">Assistants</a>
-              <a href="#" class="btn btn-rojo">Eliminar</a>
-            </div>
-          </li>
-        </ul>
+
+        {groups.length
+          ? (
+            <ul>
+              {groups.array.forEach((group: any) => {
+                <li>
+                  <div class="informacion-admin">
+                    <h3>{group.name}</h3>
+                  </div>
+                  <div class="acciones contenedor-botones">
+                    <a href={`/edit-group/${group.id}`} class="btn btn-verde">
+                      Edit
+                    </a>
+                    <a href={`/image-group/${group.id}`} class="btn btn-azul2">
+                      Image
+                    </a>
+                    <a href={`/delete-group/${group.id}`} class="btn btn-rojo">
+                      Delete
+                    </a>
+                  </div>
+                </li>;
+              })}
+            </ul>
+          )
+          : <p>You don't have any group created</p>}
       </div>
     </main>
   );
