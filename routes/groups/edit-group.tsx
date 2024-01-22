@@ -20,7 +20,7 @@ export const handler: Handlers<
   },
 };
 
-export default function NewGroup(props: PageProps) {
+export default function EditGroup(props: PageProps) {
   const { categories } = props.data;
   console.log(">> categories", categories.length);
 
@@ -29,9 +29,7 @@ export default function NewGroup(props: PageProps) {
       <h1>Create a New Group</h1>
       <form
         class="default-form"
-        action="/api/groups/new-group"
         method="POST"
-        enctype="multipart/form-data"
       >
         <div class="campo">
           <label>Name</label>
@@ -40,7 +38,7 @@ export default function NewGroup(props: PageProps) {
         <div class="campo descripcion">
           <label>Description</label>
           <div className="contenedor-editor">
-            <input type="hidden" id="x" name="description"></input>
+            <input type="hidden" id="x" name="description" value={}></input>
             <trix-editor input="x"></trix-editor>
           </div>
         </div>
@@ -51,15 +49,8 @@ export default function NewGroup(props: PageProps) {
               -- Choose a category --
             </option>
             {categories.map((category: any) => {
-              <option value={category.id}>
-                {category.name}
-              </option>;
             })}
           </select>
-        </div>
-        <div className="campo">
-          <label>Image</label>
-          <input type="file" name="image"></input>
         </div>
         <div className="campo">
           <label>Web Site</label>

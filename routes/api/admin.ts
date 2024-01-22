@@ -1,6 +1,5 @@
 import { Handlers } from "$fresh/server.ts";
-import { expandGroups } from "twind";
-import { Group } from "../../models/Group";
+import { Group } from "../../models/Group.ts";
 
 export const handler: Handlers = {
   async GET(req, _ctx) {

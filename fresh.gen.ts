@@ -7,10 +7,12 @@ import * as $_app from "./routes/_app.tsx";
 import * as $admin from "./routes/admin.tsx";
 import * as $api_admin from "./routes/api/admin.ts";
 import * as $api_categories from "./routes/api/categories.ts";
+import * as $api_groups_edit_group_id_ from "./routes/api/groups/edit-group/[id].ts";
 import * as $api_groups_new_group from "./routes/api/groups/new-group.ts";
 import * as $api_users_confirm_account_email_ from "./routes/api/users/confirm-account/[email].ts";
 import * as $api_users_sign_in from "./routes/api/users/sign-in.ts";
 import * as $api_users_sign_up from "./routes/api/users/sign-up.ts";
+import * as $groups_edit_group from "./routes/groups/edit-group.tsx";
 import * as $groups_new_group from "./routes/groups/new-group.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $users_sign_in from "./routes/users/sign-in.tsx";
@@ -25,11 +27,13 @@ const manifest = {
     "./routes/admin.tsx": $admin,
     "./routes/api/admin.ts": $api_admin,
     "./routes/api/categories.ts": $api_categories,
+    "./routes/api/groups/edit-group/[id].ts": $api_groups_edit_group_id_,
     "./routes/api/groups/new-group.ts": $api_groups_new_group,
     "./routes/api/users/confirm-account/[email].ts":
       $api_users_confirm_account_email_,
     "./routes/api/users/sign-in.ts": $api_users_sign_in,
     "./routes/api/users/sign-up.ts": $api_users_sign_up,
+    "./routes/groups/edit-group.tsx": $groups_edit_group,
     "./routes/groups/new-group.tsx": $groups_new_group,
     "./routes/index.tsx": $index,
     "./routes/users/sign-in.tsx": $users_sign_in,
